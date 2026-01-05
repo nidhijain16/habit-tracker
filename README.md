@@ -1,55 +1,61 @@
-2026 Monthly Habit Dashboard Generator
-📖 Project Overview
-This project is a Python-based automation tool designed to generate high-resolution, print-ready habit trackers for the entire year of 2026. Inspired by the philosophy of "Getting 1% Better Each Day," the script dynamically creates 12 individual monthly dashboards. Each dashboard is formatted for A4/Letter printing and serves as an analog tool for tracking daily habits, sleep patterns, and monthly goals.
+2026 Monthly Habit Dashboard Generator 
 
-🎯 Objective
-To eliminate the need for manually drawing or purchasing generic habit trackers by programmatically generating custom, date-accurate layouts for any specific year.
+A Python automation tool that generates 12 high-capacity, date-accurate habit tracker PDFs for 2026 with a 20-habit grid and integrated sleep tracking. It runs silently to produce a full year of printable dashboards in seconds.
+
+📖 Project Overview
+This project is an interactive Python tool that generates a complete set of 12 printable habit tracking dashboards for the year 2026. Version 3 introduces user customization, allowing you to input a specific social media handle or name at runtime. The script generates high-resolution, landscape-oriented PDF files designed to help users track daily habits, sleep patterns, and goals.
 
 🛠 Tech Stack
 Language: Python 3.x
 
-Libraries:
+Libraries: matplotlib, calendar, numpy, os
 
-matplotlib: Used as the primary plotting engine to draw the grids, tables, and text elements with precision.
-
-calendar: Utilized to calculate the accurate number of days per month and determine the correct day-of-the-week initials (M, T, W, etc.) for specific dates in 2026.
-
-numpy: Used for array handling within the plotting logic.
+Distribution: Standalone Windows Executable (.exe)
 
 ✨ Key Features
-Dynamic Date Calculation:
+Interactive Personalization (New in v3):
 
-The script automatically adjusts the number of columns (28, 29, 30, or 31) based on the month.
+Prompts the user to enter a custom "Handle" (e.g., @MyName, GoalCrusher) upon launching.
 
-It correctly aligns day initials (Mon, Tue, Wed) for every specific date in 2026.
+Includes a smart default: if no name is entered, it automatically defaults to @Nidhijain.
 
-Structured Layout:
+Extended Tracking Capacity:
 
-Main Dashboard: Space for 12 distinct habits/rules.
+20-Row Habit Grid: Expanded layout to track extensive daily routines.
 
-Sleep Tracker: A dedicated sub-grid to plot sleep duration (5hrs to 9hrs).
+Gamification: Includes a "Total Points" row to sum up daily wins.
 
-Total Points Row: A gamification element to sum up daily wins.
+Date-Accurate Layouts:
 
-Notes Section: Free space for monthly reflections.
+Automatically calculates correct days (including leap years/column adjustments) for every month in 2026.
 
-High-Resolution Output:
+Dynamic column sizing ensures perfect alignment for 28, 30, or 31-day months.
 
-Generates crisp vector-based PDFs or high-DPI PNGs suitable for physical printing without pixelation.
+Integrated Sleep Tracker:
 
-Customizable Elements:
+A dedicated 5-row sub-grid (5hrs–9hrs) positioned for easy correlation with daily habits.
 
-Users can easily modify the code to change the "Quote of the Month," the social media handle, or the specific habits pre-filled in the rows.
+🚀 How to Use
+Run the Tool: Double-click habit_tracker_v3.exe. A terminal window will open.
 
-🚀 How It Works
-The script iterates through a loop of integers (1–12), representing the months. For each iteration:
+Enter Your Handle: The program will ask:
 
-It queries the calendar module to get the range of days for that month/year.
+Enter your handle (e.g. @YourName):
 
-It initializes a matplotlib figure without axes.
+Option A: Type your desired name (e.g., @SuperCoder) and press Enter.
 
-It constructs two table objects: one for habits and one for sleep.
+Option B: Press Enter without typing to use the default (@Nidhijain).
 
-It populates the headers with the correct day initials.
+Wait for Generation: The script will process each month. You will see:
 
-you can save the final visual as a file (e.g., January_2026.png) in the local directory.
+Plaintext
+
+Generating tracker for month 1/12...
+...
+Success! All 12 trackers have been generated in the '2026_Trackers' folder.
+Print: Open the newly created 2026_Trackers folder in the same directory and print your files.
+
+📝 Configuration details
+Canvas: 14x10 inches (Landscape).
+
+Output: Vector PDF (High quality for print).
