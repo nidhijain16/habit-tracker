@@ -1,9 +1,9 @@
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import calendar
 import numpy as np
 import os
-if not os.path.exists("trackers"):
-    os.makedirs("trackers")
 
 def create_habit_tracker(month, year):
     # Configuration
@@ -156,13 +156,26 @@ def create_habit_tracker(month, year):
     plt.tight_layout()
     
     # Show
-    plt.show()
-    
-    # Save the figure
-    plt.savefig(f"trackers/Habit_Tracker_2026_{m}.pdf", format='pdf', bbox_inches='tight')
-    plt.close()
+    # Save to a specific folder
+    if not os.path.exists("2026_Trackers"):
+        os.makedirs("2026_Trackers")
+
+    plt.savefig(f"2026_Trackers/{month_name}_2026.pdf", bbox_inches='tight')
+    plt.close() # Important to close memory
 
 # Generate January 2026
 #create_habit_tracker(1, 2026)
-for m in range(1, 13):
-    create_habit_tracker(m, 2026)
+print("Starting habit tracker generation...")
+try:
+    for m in range(1, 13):
+        print(f"Generating tracker for month {m}/12...")
+        create_habit_tracker(m, 2026)
+    
+    print("\nSuccess! All 12 trackers have been generated in the '2026_Trackers' folder.")
+
+except Exception as e:
+    print(f"\nAn error occurred: {e}")
+    import traceback
+    traceback.print_exc()
+
+input("\nPress Enter to exit...") # Keeps the window open so they can read the message
